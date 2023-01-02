@@ -193,7 +193,8 @@ const TaskManage = styled.div`
   }
   @media screen and (max-width: 940px) {
     width: 100%;
-    height: fit-content;
+    min-height: 100vh;
+    max-height: fit-content;
     background: #121212;
     color: red;
     padding: 1rem 1rem;
