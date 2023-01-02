@@ -103,5 +103,58 @@ const TaskPage = styled.div`
     border-radius: 0.3rem;
     cursor: pointer;
   }
+  @media screen and (max-width: 940px) {
+    width: 100%;
+    height: fit-content;
+    background: #121212;
+    color: red;
+    padding: 1rem 1rem;
+    .taskCard {
+      width: 100%;
+      height: fit-content;
+      margin: auto;
+      background: white;
+      padding: 1rem 0.5rem;
+      border-radius: 0.3rem;
+      font-size: 0.7rem;
+    }
+    .complete {
+      position: relative;
+      background: white;
+      border-left: 0.5rem solid red;
+      border-right: 0.5rem solid red;
+      &::after {
+        content: "Completed";
+        position: absolute;
+        right: 1.7rem;
+        bottom: 0.2rem;
+        background: red;
+        color: white;
+        padding: 0.2rem 1rem;
+        border-radius: 0.4rem;
+      }
+    }
+    .mainTask {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .taskIcons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.1rem;
+    }
+    span {
+      color: #121212;
+    }
+    button {
+      background: none;
+      border: none;
+      padding: 0.2rem;
+      border-radius: 0.3rem;
+      cursor: pointer;
+    }
+  }
 `;
 export default Task;

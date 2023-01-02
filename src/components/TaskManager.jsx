@@ -6,8 +6,8 @@ import useLocalStorage from "use-local-storage";
 const TaskManager = () => {
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
-    // const [tasks, setTasks] = useState([]);
-    const [tasks, setTasks] = useLocalStorage("tasks", []);
+  // const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useLocalStorage("tasks", []);
 
   const [taskID, setTaskID] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
@@ -190,6 +190,68 @@ const TaskManage = styled.div`
     color: white;
     margin-top: 1.5rem;
     font-size: 1rem;
+  }
+  @media screen and (max-width: 940px) {
+    width: 100%;
+    height: fit-content;
+    background: #121212;
+    color: red;
+    padding: 1rem 1rem;
+    h1 {
+      text-align: center;
+    }
+    .formContainer {
+      width: 100%;
+    }
+    .formCard {
+      width: 100%;
+      height: fit-content;
+      margin: auto;
+      background: white;
+      padding: 2rem 0;
+      border-radius: 0.3rem;
+    }
+    .form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    input {
+      width: 70%;
+      padding: 0.5rem;
+      border-radius: 0.3rem;
+    }
+    .taskDiv {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      margin: auto;
+      gap: 2rem;
+    }
+    .formCard button {
+      width: 89%;
+      padding: 0.5rem 0;
+      background: green;
+      color: white;
+      border: none;
+      border-radius: 0.3rem;
+      cursor: pointer;
+    }
+    .taskList {
+      padding: 1rem;
+      border-bottom: 1px solid red;
+      width: 50%;
+      margin: auto;
+    }
+    .task_P {
+      text-align: center;
+      color: white;
+      margin-top: 1.5rem;
+      font-size: 1rem;
+    }
   }
 `;
 export default TaskManager;
