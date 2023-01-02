@@ -4,33 +4,45 @@ import { BiEdit } from "react-icons/bi";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { BsCheck2All } from "react-icons/bs";
 
-const Task = () => {
+const Task = ({
+  id,
+  name,
+  date,
+  complete,
+  editTask,
+  deleteTask,
+  completeTask,
+}) => {
   return (
     <TaskPage>
-      <div className="taskCard">
+      <div className={complete ? "taskCard complete" : "taskCard"} key={id}>
         <div className="task">
           <div className="taskContent">
             <div className="mainTask">
               <p>
                 <b>Task : </b>
-                <span>Obilomania</span>
+                <span>{name}</span>
               </p>
               <div className="taskIcons">
-                <button>
-                  <BiEdit size={20} color="green"/>
+                <button onClick={() => editTask(id)}>
+                  <BiEdit size={20} color="green" />
+                </button>
+                <button onClick={() => deleteTask(id)}>
+                  <RiDeleteBin6Fill size={20} color="red" />
                 </button>
                 <button>
-                  <RiDeleteBin6Fill size={20} color="red"/>
-                </button>
-                <button>
-                  <BsCheck2All size={20} color="black"/>
+                  <BsCheck2All
+                    size={20}
+                    color="black"
+                    onClick={() => completeTask(id)}
+                  />
                 </button>
               </div>
             </div>
             <div className="date">
               <p>
                 <b>Date : </b>
-                <span>07-20-1990</span>
+                <span>{date}</span>
               </p>
             </div>
           </div>
@@ -54,6 +66,22 @@ const TaskPage = styled.div`
     padding: 1rem 2rem;
     border-radius: 0.3rem;
   }
+  .complete {
+    position: relative;
+    background: white;
+    border-left: 0.5rem solid red;
+    border-right: 0.5rem solid red;
+    &::after {
+      content: "Completed";
+      position: absolute;
+      right: 1.7rem;
+      bottom: 0.2rem;
+      background: red;
+      color: white;
+      padding: 0.2rem 1rem;
+      border-radius: 0.4rem;
+    }
+  }
   .mainTask {
     display: flex;
     align-items: center;
@@ -73,6 +101,7 @@ const TaskPage = styled.div`
     border: none;
     padding: 0.2rem;
     border-radius: 0.3rem;
+    cursor: pointer;
   }
 `;
 export default Task;
